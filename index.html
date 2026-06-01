@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Birthday Bash - Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#f9f9f8", "surface": "#f9f9f8", "surface-container-low": "#f3f4f3",
+          "surface-container": "#eeeeed", "surface-variant": "#e2e2e2",
+          "on-surface": "#1a1c1c", "on-surface-variant": "#504348",
+          "primary": "#814f66", "on-primary": "#ffffff", "primary-container": "#f1b2cd",
+          "on-primary-container": "#724259", "inverse-primary": "#f4b5d0",
+          "secondary": "#3c6a00", "on-secondary": "#ffffff", "secondary-container": "#b7f17b",
+          "on-secondary-container": "#3f6f00", "tertiary-container": "#8ed48f",
+          "on-tertiary-container": "#185d25", "error": "#ba1a1a",
+          "berry-accent": "#B1507A", "charcoal-ink": "#353631",
+          "candle-yellow": "#FFD700", "party-blue": "#4A90E2",
+          "outline-variant": "#d4c2c7",
+        },
+        borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+        fontFamily: {
+          "display-bubbly": ["Bricolage Grotesque"],
+          "headline-lg": ["Bricolage Grotesque"],
+          "body-md": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+        },
+        fontSize: {
+          "display-bubbly": ["64px", { lineHeight: "72px", letterSpacing: "-0.04em", fontWeight: "800" }],
+          "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+          "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "700" }],
+        },
+        spacing: {
+          "container-max": "600px", "gutter": "24px",
+          "margin-mobile": "16px", "stack-md": "24px", "stack-lg": "48px",
+        },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block; vertical-align: middle;
+  }
+  .hand-drawn-shadow { position: relative; }
+  .hand-drawn-shadow::after {
+    content: ''; position: absolute; z-index: -1;
+    top: 4px; left: 4px; right: -4px; bottom: -4px;
+    background: #353631; border-radius: inherit; pointer-events: none;
+  }
+  .btn-press:active { transform: translate(2px, 2px); }
+  .penguin-bounce:hover { animation: bounce 0.6s infinite; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+  }
+  .shake { animation: shake 0.4s ease; }
+  .fade-out { animation: fadeOut 0.4s ease forwards; }
+  @keyframes fadeOut { to { opacity: 0; transform: scale(0.97); } }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col overflow-x-hidden">
+
+<!-- Header -->
+<header class="bg-surface flex justify-between items-center px-gutter w-full max-w-container-max mx-auto h-16 fixed top-0 left-0 right-0 z-50">
+  <h1 class="font-display-bubbly text-headline-xl-mobile text-berry-accent">Birthday Bash</h1>
+  <button class="text-on-surface-variant hover:text-berry-accent transition-colors active:scale-95 duration-150">
+    <span class="material-symbols-outlined">celebration</span>
+  </button>
+</header>
+
+<!-- Main -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-stack-lg max-w-container-max mx-auto w-full pt-24 pb-32">
+  <div class="w-full flex flex-col items-center space-y-stack-md text-center">
+
+    <!-- Penguin -->
+    <div class="relative group cursor-pointer penguin-bounce transition-all duration-300">
+      <div class="absolute -inset-4 bg-primary-container/20 rounded-full blur-xl group-hover:bg-primary-container/40 transition-all duration-500"></div>
+      <img alt="Cute Penguin with Flowers"
+        class="w-64 h-64 md:w-80 md:h-80 object-contain relative z-10"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWR3QJoxKU1W2mXIPb-8vc51XM9jJflNrKpzYxBPCZ0_N-DX0VU5qwE3r6k7Yo3S7a1GDAvYFki_XF-lzBI6Hmo_eJYLRkkLBtgIr_ZmpWuVGZCOCZwnmokELyX0BWs9F0JpfyO45rgimcSbrdUtCHJsob-IPl9Mp025VBm4Esxs8tiH7XAEdOZKELbSYD2xr9vfu_CCiQqTH6Q052gMxv2uxCbSjJ7fqMQI5peU3oT6wswWH18zoMyJmDTTY8zhXnC6gfKLOcm1Oa"/>
+    </div>
+
+    <div class="space-y-2">
+      <h2 class="font-headline-lg text-headline-lg text-charcoal-ink">Hi there!</h2>
+      <p class="text-on-surface-variant max-w-[280px]">I have some flowers for you, but first... what's the secret code?</p>
+    </div>
+
+    <!-- Password Field -->
+    <div class="w-full max-w-[320px] pt-stack-md">
+      <div class="relative hand-drawn-shadow rounded-full overflow-visible">
+        <input
+          class="w-full px-6 py-4 rounded-full border-2 border-charcoal-ink bg-[#FAFAF9] text-charcoal-ink focus:ring-2 focus:ring-berry-accent focus:outline-none text-center text-2xl tracking-widest"
+          id="passwordInput" maxlength="4" placeholder="🎂" type="password"/>
+        <div class="hidden absolute -bottom-8 left-0 right-0 text-error font-label-lg text-label-lg text-center text-sm" id="errorMsg">
+          Oops! Wrong code, try again!
+        </div>
+      </div>
+      <div class="mt-4 flex justify-center gap-2">
+        <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full border border-charcoal-ink text-[10px] font-label-lg uppercase tracking-wider">Hint: 1234</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Next Button -->
+  <div class="fixed bottom-24 right-6 z-40">
+    <button
+      class="group relative flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full border-2 border-charcoal-ink font-label-lg text-label-lg tracking-widest uppercase btn-press transition-all duration-150 hand-drawn-shadow"
+      id="nextBtn">
+      <span>NEXT</span>
+      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </button>
+  </div>
+</main>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container-low border-t-2 border-charcoal-ink">
+  <button class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:opacity-100">
+    <span class="material-symbols-outlined">photo_camera</span>
+    <span class="font-label-lg text-label-lg">Memory</span>
+  </button>
+  <button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 -translate-y-0.5 border-2 border-charcoal-ink active:translate-y-0.5 transition-all duration-100">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">cake</span>
+    <span class="font-label-lg text-label-lg">Celebrate</span>
+  </button>
+  <button class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:opacity-100">
+    <span class="material-symbols-outlined">star</span>
+    <span class="font-label-lg text-label-lg">Wishes</span>
+  </button>
+</nav>
+
+<script>
+  const passInput = document.getElementById('passwordInput');
+  const nextBtn = document.getElementById('nextBtn');
+  const errorMsg = document.getElementById('errorMsg');
+
+  function tryNavigate() {
+    if (passInput.value === '1234') {
+      nextBtn.innerHTML = '<span>YAY!</span><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">favorite</span>';
+      nextBtn.classList.replace('bg-primary', 'bg-secondary');
+      errorMsg.classList.add('hidden');
+      document.body.classList.add('fade-out');
+      setTimeout(() => { window.location.href = 'blow.html'; }, 400);
+    } else {
+      errorMsg.classList.remove('hidden');
+      passInput.classList.add('border-error', 'shake');
+      setTimeout(() => passInput.classList.remove('shake'), 400);
+    }
+  }
+
+  nextBtn.addEventListener('click', tryNavigate);
+  passInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryNavigate(); });
+  passInput.addEventListener('input', () => {
+    errorMsg.classList.add('hidden');
+    passInput.classList.remove('border-error');
+  });
+</script>
+</body>
+</html>

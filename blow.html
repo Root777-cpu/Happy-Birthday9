@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Birthday Bash - Blow the Candles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#f9f9f8", "surface": "#f9f9f8", "surface-container-low": "#f3f4f3",
+          "surface-container": "#eeeeed", "surface-variant": "#e2e2e2",
+          "on-surface": "#1a1c1c", "on-surface-variant": "#504348",
+          "primary": "#814f66", "on-primary": "#ffffff", "primary-container": "#f1b2cd",
+          "on-primary-container": "#724259", "secondary": "#3c6a00",
+          "secondary-container": "#b7f17b", "on-secondary-container": "#3f6f00",
+          "berry-accent": "#B1507A", "charcoal-ink": "#353631",
+          "candle-yellow": "#FFD700", "party-blue": "#4A90E2",
+        },
+        borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+        fontFamily: {
+          "display-bubbly": ["Bricolage Grotesque"],
+          "headline-lg": ["Bricolage Grotesque"],
+          "body-md": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+        },
+        fontSize: {
+          "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+          "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "700" }],
+        },
+        spacing: {
+          "container-max": "600px", "gutter": "24px",
+          "margin-mobile": "16px", "stack-md": "24px", "stack-lg": "48px",
+        },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  .offset-shadow {
+    position: relative;
+    box-shadow: 4px 4px 0px 0px #353631;
+  }
+  .offset-shadow:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px #353631;
+  }
+  @keyframes flicker {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+  .candle-glow { animation: flicker 0.8s infinite ease-in-out; }
+  .fade-out { animation: fadeOut 0.4s ease forwards; }
+  @keyframes fadeOut { to { opacity: 0; transform: scale(0.97); } }
+</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden">
+
+<!-- Header -->
+<header class="bg-surface flex justify-between items-center px-gutter w-full max-w-container-max mx-auto h-16 fixed top-0 left-0 right-0 z-50">
+  <h1 class="font-display-bubbly text-headline-xl-mobile text-berry-accent">Birthday Bash</h1>
+  <span class="material-symbols-outlined text-primary">celebration</span>
+</header>
+
+<!-- Main -->
+<main class="flex-grow flex flex-col items-center justify-center pt-24 pb-32 px-margin-mobile max-w-container-max mx-auto w-full text-center">
+
+  <div class="mb-stack-md">
+    <h2 class="font-headline-lg text-headline-lg text-charcoal-ink mb-2">Make a wish!</h2>
+    <p class="font-body-md text-on-surface-variant opacity-80">The cake looks delicious, doesn't it?</p>
+  </div>
+
+  <!-- Penguin & Cake Stage -->
+  <div class="relative w-full aspect-square max-w-[400px] mx-auto mb-stack-lg flex items-center justify-center">
+    <div class="absolute inset-0 bg-surface-container-low border-2 border-charcoal-ink rounded-lg -rotate-1 z-0"></div>
+    <div class="relative z-10 w-full h-full p-4" id="penguin-container">
+      <img alt="Penguin standing next to cake"
+        class="w-full h-full object-contain transition-opacity duration-500"
+        id="img-lit"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBguL5kWI1l8U5gqXG5grCDnfv9Y4GtyuOkhyeLRBPSVjTGh0UFqPG0wGduaXZauX9vMQHikmwIhbmM1liS63lEzf7zV8sCug4Sq73dG7MUfGUrmcOVx4smWyQjIOepiBXXsgBeAQKwZPDT3MVs7S56GouqsbOVfazhYqoofIb_P0iXu_i0JyDr3rUlE7sLF02tjiM8wtCcy1J3SnJRqeliOJ6wO9iL8iTvGRu2nLjzO9eKP-4x4eTERgkfeKfqs6WgLeSgBiFrtRtn"/>
+      <img alt="Penguin blowing out candles"
+        class="w-full h-full object-contain absolute inset-0 p-4 opacity-0 transition-opacity duration-500 pointer-events-none"
+        id="img-blown"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTG0aTnVAz_ZJfhaMpWLdAwIuexjvNuTf9LTR7vv4NOFb8cDARbPbAQ4mT5ewQ0uKp6Dhs55LNKAF2byFhF5DxAghgLPGupBHYgcMPBlZ-caBEqEPcyDACkGvAlrYSET3IFX962HeSd7GwgdDAdd_HUECxQZ8IhE-N6Juh6mWUeF1VCGhnCv0DPyeFtxKYG82MFqrD3lHfBY3zg6i4oi3eBWHvDfRQMMEQSgCXufpxPtHm0kMV2tBo7Z3JXhfofOVffecm_n9GxQef"/>
+    </div>
+    <div class="absolute -top-4 -right-4 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full border-2 border-charcoal-ink rotate-12 font-label-lg text-label-lg z-20">
+      Yay!
+    </div>
+  </div>
+
+  <!-- Blow Button -->
+  <button
+    class="offset-shadow bg-candle-yellow text-charcoal-ink font-headline-lg text-headline-lg px-12 py-4 rounded-full border-2 border-charcoal-ink uppercase tracking-widest transition-all duration-150"
+    id="blow-btn">
+    BLOW!
+  </button>
+</main>
+
+<!-- NEXT button -->
+<div class="fixed bottom-24 right-6 z-40">
+  <button
+    class="offset-shadow flex items-center gap-2 bg-berry-accent text-white px-8 py-3 rounded-full border-2 border-charcoal-ink font-label-lg text-label-lg uppercase"
+    id="next-btn">
+    NEXT
+    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+  </button>
+</div>
+
+<!-- PREV button -->
+<div class="fixed bottom-24 left-6 z-40">
+  <button
+    class="offset-shadow flex items-center gap-2 bg-surface text-charcoal-ink px-8 py-3 rounded-full border-2 border-charcoal-ink font-label-lg text-label-lg uppercase"
+    id="prev-btn">
+    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    BACK
+  </button>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container-low border-t-2 border-charcoal-ink">
+  <div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70">
+    <span class="material-symbols-outlined">photo_camera</span>
+    <span class="font-label-lg text-label-lg">Memory</span>
+  </div>
+  <div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 border-2 border-charcoal-ink">
+    <span class="material-symbols-outlined">cake</span>
+    <span class="font-label-lg text-label-lg">Celebrate</span>
+  </div>
+  <div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70">
+    <span class="material-symbols-outlined">star</span>
+    <span class="font-label-lg text-label-lg">Wishes</span>
+  </div>
+</nav>
+
+<script>
+  const blowBtn = document.getElementById('blow-btn');
+  const imgLit = document.getElementById('img-lit');
+  const imgBlown = document.getElementById('img-blown');
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  let hasBlown = false;
+
+  blowBtn.addEventListener('click', () => {
+    if (!hasBlown) {
+      imgLit.style.opacity = '0';
+      imgBlown.style.opacity = '1';
+      blowBtn.innerText = 'PHEW!';
+      blowBtn.classList.replace('bg-candle-yellow', 'bg-surface-variant');
+      blowBtn.classList.add('opacity-50', 'pointer-events-none');
+      createConfetti();
+      hasBlown = true;
+    }
+  });
+
+  function createConfetti() {
+    const colors = ['#f4b5d0', '#acf4ab', '#4A90E2', '#FFD700'];
+    for (let i = 0; i < 20; i++) {
+      const c = document.createElement('div');
+      c.className = 'absolute w-3 h-3 rounded-sm z-30 pointer-events-none';
+      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.left = '50%'; c.style.top = '50%';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 100 + Math.random() * 150;
+      const tx = Math.cos(angle) * dist;
+      const ty = Math.sin(angle) * dist - 50;
+      document.getElementById('penguin-container').appendChild(c);
+      c.animate([
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: `translate(${tx}px,${ty}px) scale(0) rotate(360deg)`, opacity: 0 }
+      ], { duration: 1000 + Math.random() * 500, easing: 'ease-out', fill: 'forwards' });
+      setTimeout(() => c.remove(), 1500);
+    }
+  }
+
+  nextBtn.addEventListener('click', () => {
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = 'cel.html'; }, 400);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = 'index.html'; }, 400);
+  });
+</script>
+</body>
+</html>

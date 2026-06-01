@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Birthday Bash - Celebrate!</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#f9f9f8", "surface": "#f9f9f8", "surface-container-low": "#f3f4f3",
+          "on-surface": "#1a1c1c", "on-surface-variant": "#504348",
+          "primary": "#814f66", "on-primary": "#ffffff", "primary-container": "#f1b2cd",
+          "on-primary-container": "#724259", "secondary-container": "#b7f17b",
+          "on-secondary-container": "#3f6f00", "tertiary-container": "#8ed48f",
+          "on-tertiary-container": "#185d25",
+          "berry-accent": "#B1507A", "charcoal-ink": "#353631",
+          "candle-yellow": "#FFD700", "party-blue": "#4A90E2",
+        },
+        borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+        fontFamily: {
+          "display-bubbly": ["Bricolage Grotesque"],
+          "headline-lg": ["Bricolage Grotesque"],
+          "body-md": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+        },
+        fontSize: {
+          "display-bubbly": ["64px", { lineHeight: "72px", letterSpacing: "-0.04em", fontWeight: "800" }],
+          "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+          "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+          "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "700" }],
+        },
+        spacing: {
+          "container-max": "600px", "gutter": "24px",
+          "margin-mobile": "16px", "stack-md": "24px", "stack-lg": "48px",
+        },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.3; scale: 0.8; }
+    50% { opacity: 1; scale: 1.2; }
+  }
+  .sparkle-particle { animation: sparkle 2s infinite ease-in-out; }
+  .offset-shadow { box-shadow: 4px 4px 0px 0px #353631; }
+  .offset-shadow:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px #353631; }
+  .fade-out { animation: fadeOut 0.4s ease forwards; }
+  @keyframes fadeOut { to { opacity: 0; transform: scale(0.97); } }
+</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden">
+
+<!-- Header -->
+<header class="bg-surface flex justify-between items-center px-gutter w-full max-w-container-max mx-auto h-16 fixed top-0 left-0 right-0 z-50">
+  <h1 class="font-display-bubbly text-headline-xl-mobile text-berry-accent">Birthday Bash</h1>
+  <button class="text-primary hover:text-berry-accent transition-transform active:scale-95">
+    <span class="material-symbols-outlined">celebration</span>
+  </button>
+</header>
+
+<!-- Main -->
+<main class="flex-grow pt-20 pb-32 px-margin-mobile flex flex-col items-center justify-center relative overflow-hidden">
+
+  <!-- Background Sparkles -->
+  <div class="absolute inset-0 pointer-events-none">
+    <span class="material-symbols-outlined absolute text-candle-yellow sparkle-particle" style="top:15%;left:10%;font-size:24px;">star</span>
+    <span class="material-symbols-outlined absolute text-party-blue sparkle-particle" style="top:25%;right:15%;font-size:32px;animation-delay:0.5s;">auto_awesome</span>
+    <span class="material-symbols-outlined absolute text-berry-accent sparkle-particle" style="bottom:30%;left:20%;font-size:20px;animation-delay:1.2s;">auto_awesome</span>
+    <span class="material-symbols-outlined absolute text-primary sparkle-particle" style="bottom:20%;right:10%;font-size:28px;animation-delay:0.8s;">star</span>
+  </div>
+
+  <section class="max-w-container-max w-full flex flex-col items-center gap-stack-lg z-10">
+
+    <!-- Happy Birthday Text -->
+    <div class="text-center animate-float">
+      <h2 class="font-display-bubbly text-headline-xl md:text-display-bubbly text-berry-accent drop-shadow-sm tracking-tight">
+        HAPPY<br/>BIRTHDAY!
+      </h2>
+      <div class="flex justify-center gap-2 mt-2">
+        <span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label-lg text-label-lg border-2 border-charcoal-ink">YAY!</span>
+        <span class="bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full font-label-lg text-label-lg border-2 border-charcoal-ink">HOORAY!</span>
+      </div>
+    </div>
+
+    <!-- Penguin Image -->
+    <div class="relative w-full aspect-[1.70] max-w-[500px] bg-surface-container-low rounded-lg border-2 border-charcoal-ink overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-pointer" id="cel-img-wrap">
+      <img alt="Celebrating Penguin"
+        class="w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAg2z0ev-VEstXvxbJDTJB7cN4Phwhdmk7wq6OWHxeQrJh9YoV1tsQf7KvWju4F0CR8H8wE59E1pCGfQvIBju8uge8djasoxK1odCsatOcc8PyQfvxHnEz5tEzlSrZCHGHbjdWI-6tUGGxIYIj7eEY2wVCr3G2UbKlQfAv6g8qg16cmn_p9V9N6LkBizryyOavalLL1smGH6b3oELHXw2C2y8gHFazR2QQ4t3-v97B1S6EEWNTKdDoLtW3HVq2_sAaBb1wwa9IW7cW"/>
+    </div>
+
+    <p class="font-headline-lg text-headline-lg text-center text-primary max-w-xs">
+      Look who's ready for the big celebration!
+    </p>
+  </section>
+</main>
+
+<!-- NEXT button -->
+<div class="fixed bottom-24 right-6 z-40">
+  <button
+    class="offset-shadow flex items-center gap-2 bg-berry-accent text-white px-8 py-3 rounded-full border-2 border-charcoal-ink font-label-lg text-label-lg uppercase"
+    id="next-btn">
+    NEXT
+    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+  </button>
+</div>
+
+<!-- PREV button -->
+<div class="fixed bottom-24 left-6 z-40">
+  <button
+    class="offset-shadow flex items-center gap-2 bg-surface text-charcoal-ink px-8 py-3 rounded-full border-2 border-charcoal-ink font-label-lg text-label-lg uppercase"
+    id="prev-btn">
+    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    BACK
+  </button>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container-low border-t-2 border-charcoal-ink">
+  <div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70">
+    <span class="material-symbols-outlined">photo_camera</span>
+    <span class="font-label-lg text-label-lg">Memory</span>
+  </div>
+  <div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 border-2 border-charcoal-ink" style="font-variation-settings:'FILL' 1;">
+    <span class="material-symbols-outlined">cake</span>
+    <span class="font-label-lg text-label-lg">Celebrate</span>
+  </div>
+  <div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70">
+    <span class="material-symbols-outlined">star</span>
+    <span class="font-label-lg text-label-lg">Wishes</span>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('next-btn').addEventListener('click', () => {
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = 'path.html'; }, 400);
+  });
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = 'blow.html'; }, 400);
+  });
+  document.getElementById('cel-img-wrap').addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const sparkle = document.createElement('span');
+    sparkle.className = 'material-symbols-outlined absolute text-candle-yellow pointer-events-none z-20';
+    sparkle.style.left = (e.clientX - rect.left) + 'px';
+    sparkle.style.top = (e.clientY - rect.top) + 'px';
+    sparkle.style.fontSize = '40px';
+    sparkle.style.transition = 'opacity 0.8s, transform 0.8s';
+    sparkle.innerText = 'celebration';
+    this.appendChild(sparkle);
+    setTimeout(() => { sparkle.style.opacity = '0'; sparkle.style.transform = 'translateY(-30px) scale(1.5)'; }, 50);
+    setTimeout(() => sparkle.remove(), 900);
+  });
+</script>
+</body>
+</html>

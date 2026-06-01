@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Birthday Bash - Final Destination</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#f9f9f8", "surface": "#f9f9f8", "surface-container-low": "#f3f4f3",
+          "on-surface": "#1a1c1c", "on-surface-variant": "#504348",
+          "primary": "#814f66", "on-primary": "#ffffff", "primary-container": "#f1b2cd",
+          "on-primary-container": "#724259", "secondary-container": "#b7f17b",
+          "on-secondary-container": "#3f6f00", "tertiary-container": "#8ed48f",
+          "on-tertiary-container": "#185d25", "error": "#ba1a1a", "on-error": "#ffffff",
+          "berry-accent": "#B1507A", "charcoal-ink": "#353631",
+          "candle-yellow": "#FFD700", "party-blue": "#4A90E2",
+        },
+        borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+        fontFamily: {
+          "display-bubbly": ["Bricolage Grotesque"],
+          "headline-lg": ["Bricolage Grotesque"],
+          "body-md": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+        },
+        fontSize: {
+          "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+          "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+          "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "700" }],
+        },
+        spacing: {
+          "container-max": "600px", "gutter": "24px",
+          "margin-mobile": "16px", "stack-md": "24px", "stack-lg": "48px",
+        },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  .hand-drawn-border { border: 3px solid #353631; box-shadow: 4px 4px 0px #353631; }
+  .hand-drawn-border:active { transform: translate(2px,2px); box-shadow: 0px 0px 0px #353631; }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  .floating { animation: float 3s ease-in-out infinite; }
+  .speech-bubble {
+    position: relative; background: #ffffff;
+    border: 2px solid #353631; border-radius: 1rem; padding: 12px;
+  }
+  .speech-bubble:after {
+    content:''; position:absolute; bottom:0; left:50%; width:0; height:0;
+    border:15px solid transparent; border-top-color:#353631;
+    border-bottom:0; margin-left:-15px; margin-bottom:-15px;
+  }
+  @keyframes flash { 0%{opacity:0;background:white;} 50%{opacity:1;background:white;} 100%{opacity:0;background:transparent;} }
+  .flash-effect { animation: flash 0.5s ease-out forwards; }
+  .offset-shadow { box-shadow: 4px 4px 0px 0px #353631; }
+  .offset-shadow:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px 0px #353631; }
+  .fade-out { animation: fadeOut 0.4s ease forwards; }
+  @keyframes fadeOut { to { opacity: 0; transform: scale(0.97); } }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen">
+
+<!-- Header -->
+<header class="bg-surface fixed top-0 w-full z-40 h-16 flex justify-between items-center px-gutter max-w-container-max mx-auto left-0 right-0">
+  <span class="font-display-bubbly text-headline-xl-mobile text-berry-accent">Birthday Bash</span>
+  <button class="text-primary hover:text-berry-accent transition-transform active:scale-95">
+    <span class="material-symbols-outlined">celebration</span>
+  </button>
+</header>
+
+<!-- Main -->
+<main class="pt-24 pb-32 px-margin-mobile max-w-container-max mx-auto flex flex-col items-center gap-stack-lg">
+
+  <div class="w-full flex flex-col items-center gap-stack-md text-center">
+    <div class="relative w-full aspect-[1.70] rounded-lg overflow-hidden hand-drawn-border cursor-pointer" id="hero-img-wrap">
+      <img alt="Birthday sequence hero"
+        class="w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAg2z0ev-VEstXvxbJDTJB7cN4Phwhdmk7wq6OWHxeQrJh9YoV1tsQf7KvWju4F0CR8H8wE59E1pCGfQvIBju8uge8djasoxK1odCsatOcc8PyQfvxHnEz5tEzlSrZCHGHbjdWI-6tUGGxIYIj7eEY2wVCr3G2UbKlQfAv6g8qg16cmn_p9V9N6LkBizryyOavalLL1smGH6b3oELHXw2C2y8gHFazR2QQ4t3-v97B1S6EEWNTKdDoLtW3HVq2_sAaBb1wwa9IW7cW"/>
+      <div class="absolute inset-0 pointer-events-none opacity-0 z-50" id="camera-flash"></div>
+    </div>
+    <div class="opacity-0 transition-all duration-300 scale-90" id="speech-bubble-container">
+      <div class="speech-bubble font-headline-lg text-primary text-xl">ohh that's a princess 👑</div>
+    </div>
+    <h1 class="font-headline-xl-mobile text-charcoal-ink">What's next, Birthday Star?</h1>
+  </div>
+
+  <!-- Bento Grid -->
+  <div class="grid grid-cols-2 gap-4 w-full">
+
+    <!-- Capture -->
+    <button class="col-span-2 bg-primary-container p-8 rounded-lg hand-drawn-border flex flex-col items-center justify-center gap-4 transition-all group" onclick="takePicture()">
+      <span class="material-symbols-outlined text-[64px] text-on-primary-container group-hover:scale-110 transition-transform">photo_camera</span>
+      <span class="font-label-lg text-label-lg uppercase text-on-primary-container">Capture the Moment</span>
+    </button>
+
+    <!-- Open Wishes -->
+    <button class="col-span-1 bg-secondary-container p-6 rounded-lg hand-drawn-border flex flex-col items-center justify-center gap-3 transition-all group" onclick="openNote()">
+      <span class="material-symbols-outlined text-[48px] text-on-secondary-container group-hover:rotate-12 transition-transform">mail</span>
+      <span class="font-label-lg text-label-lg uppercase text-on-secondary-container text-center">Open Your Wishes</span>
+    </button>
+
+    <!-- Star Surprise -->
+    <button class="col-span-1 bg-tertiary-container p-6 rounded-lg hand-drawn-border flex flex-col items-center justify-center gap-3 transition-all group" onclick="playVideo()">
+      <div class="floating">
+        <span class="material-symbols-outlined text-[48px] text-on-tertiary-container group-hover:scale-125 transition-transform" style="font-variation-settings:'FILL' 1;">star</span>
+      </div>
+      <span class="font-label-lg text-label-lg uppercase text-on-tertiary-container text-center">Star Surprise</span>
+    </button>
+
+  </div>
+</main>
+
+<!-- PREV button (no NEXT on last page) -->
+<div class="fixed bottom-24 left-6 z-40">
+  <button
+    class="offset-shadow flex items-center gap-2 bg-surface text-charcoal-ink px-8 py-3 rounded-full border-2 border-charcoal-ink font-label-lg text-label-lg uppercase"
+    id="prev-btn">
+    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    BACK
+  </button>
+</div>
+
+<!-- Letter Modal -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center p-gutter bg-charcoal-ink/40 backdrop-blur-sm" id="note-modal">
+  <div class="bg-surface p-8 rounded-lg max-w-[500px] w-full hand-drawn-border -rotate-1 relative mx-4">
+    <button class="absolute -top-4 -right-4 bg-error text-on-error w-10 h-10 rounded-full border-2 border-charcoal-ink flex items-center justify-center" onclick="closeNote()">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="flex flex-col gap-4">
+      <span class="material-symbols-outlined text-berry-accent text-4xl" style="font-variation-settings:'FILL' 1;">favorite</span>
+      <h2 class="font-headline-lg text-headline-lg text-charcoal-ink">A Special Note For You</h2>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic">
+        "On this most wonderful of days, I hope your world is filled with as much laughter, cake, and joy as you bring to everyone around you. You are truly the most magical princess in the kingdom. May all your birthday wishes come true!"
+      </p>
+      <div class="pt-4 flex justify-end">
+        <span class="font-display-bubbly text-berry-accent text-2xl">- With Love ❤️</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Video Modal -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal-ink/90 p-4" id="video-modal">
+  <div class="w-full max-w-3xl aspect-video bg-black rounded-lg overflow-hidden hand-drawn-border relative">
+    <button class="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md" onclick="closeVideo()">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen class="w-full h-full" frameborder="0" id="surprise-video" src=""></iframe>
+  </div>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container-low border-t-2 border-charcoal-ink">
+  <div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70">
+    <span class="material-symbols-outlined">photo_camera</span>
+    <span class="font-label-lg text-label-lg">Memory</span>
+  </div>
+  <div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70">
+    <span class="material-symbols-outlined">cake</span>
+    <span class="font-label-lg text-label-lg">Celebrate</span>
+  </div>
+  <div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 border-2 border-charcoal-ink">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+    <span class="font-label-lg text-label-lg">Wishes</span>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    document.body.classList.add('fade-out');
+    setTimeout(() => { window.location.href = 'cel.html'; }, 400);
+  });
+
+  function takePicture() {
+    const flash = document.getElementById('camera-flash');
+    const bubble = document.getElementById('speech-bubble-container');
+    flash.classList.add('flash-effect');
+    setTimeout(() => flash.classList.remove('flash-effect'), 500);
+    bubble.classList.remove('opacity-0', 'scale-90');
+    bubble.classList.add('opacity-100', 'scale-100');
+    setTimeout(() => {
+      bubble.classList.add('opacity-0', 'scale-90');
+      bubble.classList.remove('opacity-100', 'scale-100');
+    }, 3000);
+  }
+
+  function openNote() {
+    const m = document.getElementById('note-modal');
+    m.classList.remove('hidden'); m.classList.add('flex');
+  }
+  function closeNote() {
+    const m = document.getElementById('note-modal');
+    m.classList.add('hidden'); m.classList.remove('flex');
+  }
+  function playVideo() {
+    const m = document.getElementById('video-modal');
+    document.getElementById('surprise-video').src = "https://www.youtube.com/embed/f-HmlP_kC8M?autoplay=1";
+    m.classList.remove('hidden'); m.classList.add('flex');
+  }
+  function closeVideo() {
+    const m = document.getElementById('video-modal');
+    document.getElementById('surprise-video').src = "";
+    m.classList.add('hidden'); m.classList.remove('flex');
+  }
+</script>
+</body>
+</html>
+
